@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import copy from 'copy-to-clipboard'
-import Result from '../components/Result';
 
 class Index extends React.Component {
     constructor(props) {
