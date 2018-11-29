@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import copy from 'copy-to-clipboard'
+import Head from 'next/head';
+import Result from '../components/Result';
 
 class Index extends React.Component {
     constructor(props) {
@@ -10,7 +10,6 @@ class Index extends React.Component {
         this.toUpperCase = this.toUpperCase.bind(this);
         this.toLowerCase = this.toLowerCase.bind(this);
         this.toCapitalize = this.toCapitalize.bind(this);
-        this.copy = this.copy.bind(this);
     }
 
     handleChange(event) {
@@ -54,18 +53,6 @@ class Index extends React.Component {
         });
     }
 
-    copy() {
-        copy(this.state.data)
-    }
-
-    Mailbox() {
-        return (
-            <div>
-                <p>{this.state.data}</p>
-                <button className="button is-dark" type="button" onClick={this.copy}>Copy</button>
-            </div>
-        );
-    }
     render() {
         return (
             <div>
@@ -92,9 +79,8 @@ class Index extends React.Component {
                         </div>
                     </div>
 
-                    <div>
-                        {this.state.data ? <div><p>{this.state.data}</p> <button className="button is-dark" type="button" onClick={this.copy}>Copy to Clipboard</button></div> : ""}
-                    </div>
+
+                    {this.state.data ? <Result result={this.state.data} /> : ""}
 
                 </div>
             </div>
